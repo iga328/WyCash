@@ -14,8 +14,14 @@ namespace WyCashTest
         public void Test01_Multiplication()
         {
             Dollar five = new Dollar( 5 );
-            five.Times( 2 );
-            Assert.AreEqual( 10, five.amount );
+
+            Dollar product = five.Times( 2 );
+            Assert.AreEqual( 10, product.amount );
+            Console.WriteLine( "five.amount(Times:2) = " + product.amount );
+
+            product = five.Times( 3 );
+            Assert.AreEqual( 15, product.amount );
+            Console.WriteLine( "five.amount(Times:3) = " + product.amount );
         }
     }
 }
