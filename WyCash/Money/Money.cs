@@ -9,5 +9,11 @@ namespace WyCash
     public class Money
     {
         protected int amount;
+
+        public bool IsEqual( object target )
+        {
+            Money money = (Money)target;
+            return this.amount == money.amount;
+        }
     }
 }

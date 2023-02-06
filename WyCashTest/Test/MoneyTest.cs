@@ -23,13 +23,19 @@ namespace WyCashTest
         }
 
         [Test]
-        public void Test02_DollarEquality()
+        public void Test02_Equality()
         {
             Assert.IsTrue( new Dollar( 5 ).IsEqual( new Dollar( 5 ) ) );
             Console.WriteLine( "new Dollar( 5 ).IsEqual( new Dollar( 5 ) ) = True" );
 
             Assert.IsFalse( new Dollar( 5 ).IsEqual( new Dollar( 6 ) ) );
             Console.WriteLine( "new Dollar( 5 ).IsEqual( new Dollar( 6 ) ) = False" );
+
+            Assert.IsTrue( new Franc( 5 ).IsEqual( new Franc( 5 ) ) );
+            Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 5 ) ) = True" );
+
+            Assert.IsFalse( new Franc( 5 ).IsEqual( new Franc( 6 ) ) );
+            Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 6 ) ) = False" );
         }
 
         [Test]

@@ -17,10 +17,5 @@ namespace WyCash
         {
             return new Dollar( this.amount * multiplier );
         }
-
-        public bool IsEqual( object target )
-        {
-            return this.amount == ( (Dollar)target ).amount;
-        }
     }
 }

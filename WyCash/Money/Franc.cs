@@ -17,10 +17,5 @@ namespace WyCash
         {
             return new Franc( this.amount * multiplier );
         }
-
-        public bool IsEqual( object target )
-        {
-            return this.amount == ( (Franc)target ).amount;
-        }
     }
 }
