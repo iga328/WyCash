@@ -15,13 +15,11 @@ namespace WyCashTest
         {
             Dollar five = new Dollar( 5 );
 
-            Dollar product = five.Times( 2 );
-            Assert.AreEqual( 10, product.amount );
-            Console.WriteLine( "five.amount(Times:2) = " + product.amount );
+            Assert.IsTrue( new Dollar( 10 ).IsEqual( five.Times( 2 ) ) );
+            Console.WriteLine( "new Dollar( 10 ) = new Dollar( 5 ).Times( 2 )" );
 
-            product = five.Times( 3 );
-            Assert.AreEqual( 15, product.amount );
-            Console.WriteLine( "five.amount(Times:3) = " + product.amount );
+            Assert.IsTrue( new Dollar( 15 ).IsEqual( five.Times( 3 ) ) );
+            Console.WriteLine( "new Dollar( 15 ) = new Dollar( 5 ).Times( 3 )" );
         }
 
         [Test]
