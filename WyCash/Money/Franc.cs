@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WyCash
 {
-    public class Franc
+    public class Franc : Money
     {
         private int amount;
 
