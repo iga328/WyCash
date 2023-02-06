@@ -8,8 +8,6 @@ namespace WyCash
 {
     public class Franc : Money
     {
-        private int amount;
-
         public Franc( int amount )
         {
             this.amount = amount;

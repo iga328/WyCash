@@ -8,5 +8,6 @@ namespace WyCash
 {
     public class Money
     {
+        protected int amount;
     }
 }
