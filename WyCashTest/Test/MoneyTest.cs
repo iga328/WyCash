@@ -23,5 +23,15 @@ namespace WyCashTest
             Assert.AreEqual( 15, product.amount );
             Console.WriteLine( "five.amount(Times:3) = " + product.amount );
         }
+
+        [Test]
+        public void Test02_Equality()
+        {
+            Assert.IsTrue( new Dollar( 5 ).IsEqual( new Dollar( 5 ) ) );
+            Console.WriteLine( "new Dollar( 5 ).IsEqual( new Dollar( 5 ) ) = True" );
+
+            Assert.IsFalse( new Dollar( 5 ).IsEqual( new Dollar( 6 ) ) );
+            Console.WriteLine( "new Dollar( 5 ).IsEqual( new Dollar( 6 ) ) = False" );
+        }
     }
 }
