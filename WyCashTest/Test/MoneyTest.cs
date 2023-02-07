@@ -31,26 +31,26 @@ namespace WyCashTest
             Assert.IsFalse( Money.Dollar( 5 ).IsEqual( Money.Dollar( 6 ) ) );
             Console.WriteLine( "Money.Dollar( 5 ).IsEqual( Money.Dollar( 6 ) ) = False" );
 
-            Assert.IsTrue( new Franc( 5 ).IsEqual( new Franc( 5 ) ) );
-            Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 5 ) ) = True" );
+            Assert.IsTrue( Money.Franc( 5 ).IsEqual( Money.Franc( 5 ) ) );
+            Console.WriteLine( "Money.Franc( 5 ).IsEqual( Money.Franc( 5 ) ) = True" );
 
-            Assert.IsFalse( new Franc( 5 ).IsEqual( new Franc( 6 ) ) );
-            Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 6 ) ) = False" );
+            Assert.IsFalse( Money.Franc( 5 ).IsEqual( Money.Franc( 6 ) ) );
+            Console.WriteLine( "Money.Franc( 5 ).IsEqual( Money.Franc( 6 ) ) = False" );
 
-            Assert.IsFalse( new Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) );
-            Console.WriteLine( "new Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) = False" );
+            Assert.IsFalse( Money.Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) );
+            Console.WriteLine( "Money.Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) = False" );
         }
 
         [Test]
         public void Test03_FrancMultiplication()
         {
-            Franc five = new Franc( 5 );
+            Money five = Money.Franc( 5 );
 
-            Assert.IsTrue( new Franc( 10 ).IsEqual( five.Times( 2 ) ) );
-            Console.WriteLine( "new Franc( 10 ) = new Franc( 5 ).Times( 2 )" );
+            Assert.IsTrue( Money.Franc( 10 ).IsEqual( five.Times( 2 ) ) );
+            Console.WriteLine( "Money.Franc( 10 ) = Money.Franc( 5 ).Times( 2 )" );
 
-            Assert.IsTrue( new Franc( 15 ).IsEqual( five.Times( 3 ) ) );
-            Console.WriteLine( "new Franc( 15 ) = new Franc( 5 ).Times( 3 )" );
+            Assert.IsTrue( Money.Franc( 15 ).IsEqual( five.Times( 3 ) ) );
+            Console.WriteLine( "Money.Franc( 15 ) = Money.Franc( 5 ).Times( 3 )" );
         }
     }
 }
