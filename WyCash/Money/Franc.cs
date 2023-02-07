@@ -17,5 +17,10 @@ namespace WyCash
         {
             return new Franc( this.amount * multiplier );
         }
+
+        public override string Currency()
+        {
+            return "CHF";
+        }
     }
 }

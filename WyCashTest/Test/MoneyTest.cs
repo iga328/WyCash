@@ -52,5 +52,15 @@ namespace WyCashTest
             Assert.IsTrue( Money.Franc( 15 ).IsEqual( five.Times( 3 ) ) );
             Console.WriteLine( "Money.Franc( 15 ) = Money.Franc( 5 ).Times( 3 )" );
         }
+
+        [Test]
+        public void Test04_Currency()
+        {
+            Assert.AreEqual( "USD", Money.Dollar( 1 ).Currency() );
+            Console.WriteLine( "Money.Dollar( 1 ).Currency() = USD" );
+
+            Assert.AreEqual( "CHF", Money.Franc( 1 ).Currency() );
+            Console.WriteLine( "Money.Franc( 1 ).Currency() = CHF" );
+        }
     }
 }
