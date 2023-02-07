@@ -13,7 +13,7 @@ namespace WyCash
         public bool IsEqual( object target )
         {
             Money money = (Money)target;
-            return this.amount == money.amount;
+            return this.amount == money.amount && this.GetType().Equals( money.GetType() );
         }
     }
 }

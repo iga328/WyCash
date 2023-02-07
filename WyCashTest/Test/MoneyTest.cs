@@ -36,6 +36,9 @@ namespace WyCashTest
 
             Assert.IsFalse( new Franc( 5 ).IsEqual( new Franc( 6 ) ) );
             Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 6 ) ) = False" );
+
+            Assert.IsFalse( new Franc( 5 ).IsEqual( new Dollar( 5 ) ) );
+            Console.WriteLine( "new Franc( 5 ).IsEqual( new Dollar( 5 ) ) = False" );
         }
 
         [Test]
