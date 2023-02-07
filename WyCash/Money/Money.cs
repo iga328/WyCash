@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace WyCash
 {
-    public class Money
+    public abstract class Money
     {
         protected int amount;
+
+        public abstract Money Times( int multiplier );
 
         public bool IsEqual( object target )
         {
