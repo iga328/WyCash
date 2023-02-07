@@ -15,21 +15,21 @@ namespace WyCashTest
         {
             Money five = Money.Dollar( 5 );
 
-            Assert.IsTrue( new Dollar( 10 ).IsEqual( five.Times( 2 ) ) );
-            Console.WriteLine( "new Dollar( 10 ) = Money.Dollar( 5 ).Times( 2 )" );
+            Assert.IsTrue( Money.Dollar( 10 ).IsEqual( five.Times( 2 ) ) );
+            Console.WriteLine( "Money.Dollar( 10 ) = Money.Dollar( 5 ).Times( 2 )" );
 
-            Assert.IsTrue( new Dollar( 15 ).IsEqual( five.Times( 3 ) ) );
-            Console.WriteLine( "new Dollar( 15 ) = Money.Dollar( 5 ).Times( 3 )" );
+            Assert.IsTrue( Money.Dollar( 15 ).IsEqual( five.Times( 3 ) ) );
+            Console.WriteLine( "Money.Dollar( 15 ) = Money.Dollar( 5 ).Times( 3 )" );
         }
 
         [Test]
         public void Test02_Equality()
         {
-            Assert.IsTrue( new Dollar( 5 ).IsEqual( new Dollar( 5 ) ) );
-            Console.WriteLine( "new Dollar( 5 ).IsEqual( new Dollar( 5 ) ) = True" );
+            Assert.IsTrue( Money.Dollar( 5 ).IsEqual( Money.Dollar( 5 ) ) );
+            Console.WriteLine( "Money.Dollar( 5 ).IsEqual( Money.Dollar( 5 ) ) = True" );
 
-            Assert.IsFalse( new Dollar( 5 ).IsEqual( new Dollar( 6 ) ) );
-            Console.WriteLine( "new Dollar( 5 ).IsEqual( new Dollar( 6 ) ) = False" );
+            Assert.IsFalse( Money.Dollar( 5 ).IsEqual( Money.Dollar( 6 ) ) );
+            Console.WriteLine( "Money.Dollar( 5 ).IsEqual( Money.Dollar( 6 ) ) = False" );
 
             Assert.IsTrue( new Franc( 5 ).IsEqual( new Franc( 5 ) ) );
             Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 5 ) ) = True" );
@@ -37,8 +37,8 @@ namespace WyCashTest
             Assert.IsFalse( new Franc( 5 ).IsEqual( new Franc( 6 ) ) );
             Console.WriteLine( "new Franc( 5 ).IsEqual( new Franc( 6 ) ) = False" );
 
-            Assert.IsFalse( new Franc( 5 ).IsEqual( new Dollar( 5 ) ) );
-            Console.WriteLine( "new Franc( 5 ).IsEqual( new Dollar( 5 ) ) = False" );
+            Assert.IsFalse( new Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) );
+            Console.WriteLine( "new Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) = False" );
         }
 
         [Test]
