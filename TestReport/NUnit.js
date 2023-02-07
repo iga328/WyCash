@@ -2,30 +2,23 @@
 // 定数
 //
 	// 環境に合わせて記述
-	var OPENCOVER_FOLDER = "C:\\Users\\vkki802430\\AppData\\Local\\Apps\\OpenCover"
-	var NUNIT_FOLDER     = "C:\\Program Files (x86)\\NUnit 2.7.0\\bin"
+	var NUNIT_FOLDER = "C:\\Program Files (x86)\\NUnit 2.7.0\\bin"
 
 	// 以下は固定
 	var POPUP_TITLE = "NUnitTest";
 
-	var OPENCOVER_EXE = OPENCOVER_FOLDER + "\\OpenCover.Console.exe"
 	var NUNIT_EXE     = NUNIT_FOLDER + "\\nunit-x86.exe"
 
 	var TARGET_FOLDER = "..\\WyCash\\bin"
 	var TEST_FILE     = TARGET_FOLDER + "\\" + "WyCashTest.dll"
 	var RESULT_FILE   = "TestResult.xml"
-	var COVERAGE_FILE = "TestCoverage.xml"
 
-	var FOLDER_TOOLS          = ".\\_Tools"
-	var FOLDER_NUNIT          = ".\\NUnit"
-	var FOLDER_NUNIT_RESULT   = FOLDER_NUNIT + "\\Result"
-	var FOLDER_NUNIT_COVERAGE = FOLDER_NUNIT + "\\Coverage"
+	var FOLDER_TOOLS        = ".\\_Tools"
+	var FOLDER_NUNIT        = ".\\NUnit"
+	var FOLDER_NUNIT_RESULT = FOLDER_NUNIT + "\\Result"
 
 	var RESULT_PATH = TARGET_FOLDER + "\\" + RESULT_FILE
 	var RESULT_EXE  = FOLDER_TOOLS + "\\Result\\NUnitReport.CUI.exe"
-
-	var COVERAGE_PATH = TARGET_FOLDER + "\\" + COVERAGE_FILE
-	var COVERAGE_EXE  = FOLDER_TOOLS + "\\Coverage\\ReportGenerator.exe"
 
 
 //----------------------------------------------------------
@@ -76,29 +69,10 @@
 	}
 	fs.CreateFolder( FOLDER_NUNIT );
 
-	// カバレッジを出力するかどうかを確認
-	var ret = sh.Popup( "カバレッジを出力しますか？\n" + "   [はい]：出力する\n" + "   [いいえ]：出力しない",
-						0, POPUP_TITLE, ( BTN_YES_NO + ICON_QUESTION + BTN_DEFAULT_2ND ) );
-	var isCoverage = ( ret == BTNR_YES ) ? true : false;
-
-	if( isCoverage == true )
-	{
-		// OpenCoverからNUnitを起動
-		sh.run( '"' + OPENCOVER_EXE + '"'
-			+ " -target:" + '"' + NUNIT_EXE + '"'
-			+ " -targetdir:" + '"' + TARGET_FOLDER + '"'
-			+ " -targetargs:" + '"' + TEST_FILE + '"'
-			+ " -output:" + '"' + COVERAGE_PATH + '"'
-			+ " -register:user -mergebyhash -filter:+[RESS-D]RESS_D.*"
-			, 1, 1 );
-	}
-	else
-	{
-		// 直接NUnitを起動
-		sh.run( '"' + NUNIT_EXE + '"'
-			+ ' "' + TEST_FILE + '"'
-			, 1, 1 );
-	}
+	// NUnitを起動
+	sh.run( '"' + NUNIT_EXE + '"'
+		+ ' "' + TEST_FILE + '"'
+		, 1, 1 );
 
 	// テスト結果出力
 	var isExist = fs.FileExists( RESULT_PATH );
@@ -109,19 +83,6 @@
 			+ ' "' + FOLDER_NUNIT_RESULT + '"'
 			+ "\\TestResult.html"
 			, 1, 1 );
-	}
-
-	if( isCoverage == true )
-	{
-		// カバレッジ結果出力
-		var isExist = fs.FileExists( COVERAGE_PATH );
-		if( isExist == true  )
-		{
-			sh.run( '"' + COVERAGE_EXE + '"'
-				+ ' "' + COVERAGE_PATH + '"'
-				+ ' "' + FOLDER_NUNIT_COVERAGE + '"'
-				, 1, 1 );
-		}
 	}
 
 	sh.Popup( "出力完了", 0, POPUP_TITLE, ( BTN_OK + ICON_INFORMATION ) );
