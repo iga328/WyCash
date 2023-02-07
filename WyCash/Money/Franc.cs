@@ -8,9 +8,12 @@ namespace WyCash
 {
     public class Franc : Money
     {
+        private string currency;
+
         public Franc( int amount )
         {
             this.amount = amount;
+            this.currency = "CHF";
         }
 
         public override Money Times( int multiplier )
@@ -20,7 +23,7 @@ namespace WyCash
 
         public override string Currency()
         {
-            return "CHF";
+            return this.currency;
         }
     }
 }
