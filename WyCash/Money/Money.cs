@@ -11,6 +11,12 @@ namespace WyCash
         protected int amount;
         protected string currency;
 
+        public Money( int amount, string currency )
+        {
+            this.amount = amount;
+            this.currency = currency;
+        }
+
         public abstract Money Times( int multiplier );
 
         public string Currency()
