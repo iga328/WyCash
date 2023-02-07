@@ -13,7 +13,7 @@ namespace WyCashTest
         [Test]
         public void Test01_DollarMultiplication()
         {
-            Dollar five = new Dollar( 5 );
+            Dollar five = Money.Dollar( 5 );
 
             Assert.IsTrue( new Dollar( 10 ).IsEqual( five.Times( 2 ) ) );
             Console.WriteLine( "new Dollar( 10 ) = new Dollar( 5 ).Times( 2 )" );
