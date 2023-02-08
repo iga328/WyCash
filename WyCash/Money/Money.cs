@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace WyCash
 {
+    [DataContract]
     public abstract class Money
     {
+        [DataMember()]
         protected int amount;
+
+        [DataMember()]
         protected string currency;
 
         public Money( int amount, string currency )

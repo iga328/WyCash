@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Json;
 using NUnit.Framework;
 using WyCash;
 
@@ -10,15 +12,29 @@ namespace WyCashTest
 {
     public class MoneyTest
     {
+        private void AreEqualByJson( object expected, object actual )
+        {
+            DataContractJsonSerializer serializerE = new DataContractJsonSerializer( expected.GetType() );
+            MemoryStream msE = new MemoryStream();
+            serializerE.WriteObject( msE, expected );
+
+            DataContractJsonSerializer serializerA = new DataContractJsonSerializer( actual.GetType() );
+            MemoryStream msA = new MemoryStream();
+            serializerA.WriteObject( msA, actual );
+
+            Assert.AreEqual( msE, msA, string.Format( "expected:{0}, actual:{1}",
+                             Encoding.UTF8.GetString( msE.ToArray() ), Encoding.UTF8.GetString( msA.ToArray() ) ) );
+        }
+
         [Test]
         public void Test01_DollarMultiplication()
         {
             Money five = Money.Dollar( 5 );
 
-            Assert.IsTrue( Money.Dollar( 10 ).IsEqual( five.Times( 2 ) ) );
+            this.AreEqualByJson( Money.Dollar( 10 ), five.Times( 2 ) );
             Console.WriteLine( "Money.Dollar( 10 ) = Money.Dollar( 5 ).Times( 2 )" );
 
-            Assert.IsTrue( Money.Dollar( 15 ).IsEqual( five.Times( 3 ) ) );
+            this.AreEqualByJson( Money.Dollar( 15 ), five.Times( 3 ) );
             Console.WriteLine( "Money.Dollar( 15 ) = Money.Dollar( 5 ).Times( 3 )" );
         }
 
@@ -46,10 +62,10 @@ namespace WyCashTest
         {
             Money five = Money.Franc( 5 );
 
-            Assert.IsTrue( Money.Franc( 10 ).IsEqual( five.Times( 2 ) ) );
+            this.AreEqualByJson( Money.Franc( 10 ), five.Times( 2 ) );
             Console.WriteLine( "Money.Franc( 10 ) = Money.Franc( 5 ).Times( 2 )" );
 
-            Assert.IsTrue( Money.Franc( 15 ).IsEqual( five.Times( 3 ) ) );
+            this.AreEqualByJson( Money.Franc( 15 ), five.Times( 3 ) );
             Console.WriteLine( "Money.Franc( 15 ) = Money.Franc( 5 ).Times( 3 )" );
         }
 
