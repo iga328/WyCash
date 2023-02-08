@@ -13,7 +13,7 @@ namespace WyCash
 
         public override Money Times( int multiplier )
         {
-            return new Dollar( this.amount * multiplier, "USD" );
+            return new Dollar( this.amount * multiplier, this.currency );
         }
     }
 }
