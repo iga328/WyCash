@@ -22,9 +22,9 @@ namespace WyCash
             this.currency = currency;
         }
 
-        public virtual Money Times( int multiplier )
+        public Money Times( int multiplier )
         {
-            return null;
+            return new Money( this.amount * multiplier, this.currency );
         }
 
         public string Currency()
