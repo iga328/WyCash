@@ -35,7 +35,7 @@ namespace WyCash
         public bool IsEqual( object target )
         {
             Money money = (Money)target;
-            return this.amount == money.amount && this.GetType().Equals( money.GetType() );
+            return this.amount == money.amount && this.Currency().Equals( money.Currency(), StringComparison.Ordinal );
         }
 
         public static Money Dollar( int amount )

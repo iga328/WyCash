@@ -81,5 +81,12 @@ namespace WyCashTest
             Assert.AreEqual( "CHF", Money.Franc( 1 ).Currency() );
             Console.WriteLine( "Money.Franc( 1 ).Currency() = CHF" );
         }
+
+        [Test]
+        public void Test05_DifferentClassEquality()
+        {
+            Assert.IsTrue( new Money( 10, "CHF" ).IsEqual( new Franc( 10, "CHF" ) ) );
+            Console.WriteLine( "new Money( 10, \"CHF\" ).IsEqual( new Franc( 10, \"CHF\" ) ) = True" );
+        }
     }
 }
