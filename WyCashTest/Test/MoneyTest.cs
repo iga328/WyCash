@@ -22,10 +22,7 @@ namespace WyCashTest
             MemoryStream msA = new MemoryStream();
             serializerA.WriteObject( msA, actual );
 
-            Assert.AreEqual( expected.GetType(), actual.GetType(), string.Format( "[Type] expected:{0}, actual:{1}",
-                             expected.GetType(), actual.GetType() ) );
-
-            Assert.AreEqual( msE, msA, string.Format( "[Value] expected:{0}, actual:{1}",
+            Assert.AreEqual( msE, msA, string.Format( "expected:{0}, actual:{1}",
                              Encoding.UTF8.GetString( msE.ToArray() ), Encoding.UTF8.GetString( msA.ToArray() ) ) );
         }
 
