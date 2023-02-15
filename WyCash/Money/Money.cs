@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace WyCash
 {
     [DataContract]
-    public abstract class Money
+    public class Money
     {
         [DataMember()]
         protected int amount;
@@ -22,7 +22,10 @@ namespace WyCash
             this.currency = currency;
         }
 
-        public abstract Money Times( int multiplier );
+        public virtual Money Times( int multiplier )
+        {
+            return null;
+        }
 
         public string Currency()
         {
