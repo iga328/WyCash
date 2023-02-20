@@ -47,12 +47,6 @@ namespace WyCashTest
             Assert.IsFalse( Money.Dollar( 5 ).IsEqual( Money.Dollar( 6 ) ) );
             Console.WriteLine( "Money.Dollar( 5 ).IsEqual( Money.Dollar( 6 ) ) = False" );
 
-            Assert.IsTrue( Money.Franc( 5 ).IsEqual( Money.Franc( 5 ) ) );
-            Console.WriteLine( "Money.Franc( 5 ).IsEqual( Money.Franc( 5 ) ) = True" );
-
-            Assert.IsFalse( Money.Franc( 5 ).IsEqual( Money.Franc( 6 ) ) );
-            Console.WriteLine( "Money.Franc( 5 ).IsEqual( Money.Franc( 6 ) ) = False" );
-
             Assert.IsFalse( Money.Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) );
             Console.WriteLine( "Money.Franc( 5 ).IsEqual( Money.Dollar( 5 ) ) = False" );
         }
@@ -77,13 +71,6 @@ namespace WyCashTest
 
             Assert.AreEqual( "CHF", Money.Franc( 1 ).Currency() );
             Console.WriteLine( "Money.Franc( 1 ).Currency() = CHF" );
-        }
-
-        [Test]
-        public void Test05_DifferentClassEquality()
-        {
-            Assert.IsTrue( new Money( 10, "CHF" ).IsEqual( new Franc( 10, "CHF" ) ) );
-            Console.WriteLine( "new Money( 10, \"CHF\" ).IsEqual( new Franc( 10, \"CHF\" ) ) = True" );
         }
     }
 }
