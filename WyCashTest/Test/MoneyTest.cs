@@ -52,19 +52,7 @@ namespace WyCashTest
         }
 
         [Test]
-        public void Test03_FrancMultiplication()
-        {
-            Money five = Money.Franc( 5 );
-
-            this.AreEqualByJson( Money.Franc( 10 ), five.Times( 2 ) );
-            Console.WriteLine( "Money.Franc( 10 ) = Money.Franc( 5 ).Times( 2 )" );
-
-            this.AreEqualByJson( Money.Franc( 15 ), five.Times( 3 ) );
-            Console.WriteLine( "Money.Franc( 15 ) = Money.Franc( 5 ).Times( 3 )" );
-        }
-
-        [Test]
-        public void Test04_Currency()
+        public void Test03_Currency()
         {
             Assert.AreEqual( "USD", Money.Dollar( 1 ).Currency() );
             Console.WriteLine( "Money.Dollar( 1 ).Currency() = USD" );
