@@ -60,5 +60,13 @@ namespace WyCashTest
             Assert.AreEqual( "CHF", Money.Franc( 1 ).Currency() );
             Console.WriteLine( "Money.Franc( 1 ).Currency() = CHF" );
         }
+
+        [Test]
+        public void Test04_SimpleAddition()
+        {
+            Money sum = Money.Dollar( 5 ).Plus( Money.Dollar( 5 ) );
+            this.AreEqualByJson( Money.Dollar( 10 ), sum );
+            Console.WriteLine( "Money.Dollar( 5 ).Plus( Money.Dollar( 5 ) ) = Money.Dollar( 10 )" );
+        }
     }
 }

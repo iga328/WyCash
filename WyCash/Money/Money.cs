@@ -27,6 +27,11 @@ namespace WyCash
             return new Money( this.amount * multiplier, this.currency );
         }
 
+        public Money Plus( Money addend )
+        {
+            return new Money( this.amount + addend.amount, this.currency );
+        }
+
         public string Currency()
         {
             return this.currency;
