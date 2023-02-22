@@ -29,7 +29,7 @@ namespace WyCash
 
         public Expression Plus( Money addend )
         {
-            return new Money( this.amount + addend.amount, this.currency );
+            return new Sum( this, addend );
         }
 
         public string Currency()
