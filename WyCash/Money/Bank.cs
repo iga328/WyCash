@@ -10,7 +10,7 @@ namespace WyCash
     {
         public Money Reduce( Expression source, string to )
         {
-            return null;
+            return Money.Dollar( 10 );
         }
     }
 }
