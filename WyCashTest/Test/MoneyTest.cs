@@ -64,8 +64,11 @@ namespace WyCashTest
         [Test]
         public void Test04_SimpleAddition()
         {
-            Money sum = Money.Dollar( 5 ).Plus( Money.Dollar( 5 ) );
-            this.AreEqualByJson( Money.Dollar( 10 ), sum );
+            Money five = Money.Dollar( 5 );
+            Expression sum = five.Plus( five );
+            Bank bank = new Bank();
+            Money reduced = bank.Reduce( sum, "USD" );
+            this.AreEqualByJson( Money.Dollar( 10 ), reduced );
             Console.WriteLine( "Money.Dollar( 5 ).Plus( Money.Dollar( 5 ) ) = Money.Dollar( 10 )" );
         }
     }

@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace WyCash
 {
     [DataContract]
-    public class Money
+    public class Money : Expression
     {
         [DataMember()]
         protected int amount;
@@ -27,7 +27,7 @@ namespace WyCash
             return new Money( this.amount * multiplier, this.currency );
         }
 
-        public Money Plus( Money addend )
+        public Expression Plus( Money addend )
         {
             return new Money( this.amount + addend.amount, this.currency );
         }
