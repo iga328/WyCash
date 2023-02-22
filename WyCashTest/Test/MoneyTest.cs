@@ -71,5 +71,17 @@ namespace WyCashTest
             this.AreEqualByJson( Money.Dollar( 10 ), reduced );
             Console.WriteLine( "Money.Dollar( 5 ).Plus( Money.Dollar( 5 ) ) = Money.Dollar( 10 )" );
         }
+
+        [Test]
+        public void Test05_PlusReturnsSum()
+        {
+            Money five = Money.Dollar( 5 );
+            Expression result = five.Plus( five );
+            Sum sum = (Sum)result;
+            this.AreEqualByJson( five, sum.augend );
+            Console.WriteLine( "Money.Dollar( 5 ) = sum.augend" );
+            this.AreEqualByJson( five, sum.addend );
+            Console.WriteLine( "Money.Dollar( 5 ) = sum.addend" );
+        }
     }
 }
