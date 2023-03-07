@@ -8,5 +8,6 @@ namespace WyCash
 {
     public interface Expression
     {
+        Money Reduce( string to );
     }
 }

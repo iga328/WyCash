@@ -32,6 +32,11 @@ namespace WyCash
             return new Sum( this, addend );
         }
 
+        public Money Reduce( string to )
+        {
+            return this;
+        }
+
         public string Currency()
         {
             return this.currency;

@@ -12,7 +12,7 @@ namespace WyCash
         {
             if( source is Money )
             {
-                return (Money)source;
+                return ( (Money)source ).Reduce( to );
             }
             Sum sum = (Sum)source;
             return sum.Reduce( to );
