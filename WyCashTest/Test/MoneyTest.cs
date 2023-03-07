@@ -83,5 +83,15 @@ namespace WyCashTest
             this.AreEqualByJson( five, sum.addend );
             Console.WriteLine( "Money.Dollar( 5 ) = sum.addend" );
         }
+
+        [Test]
+        public void Test06_ReduceSum()
+        {
+            Expression sum = new Sum( Money.Dollar( 3 ), Money.Dollar( 4 ) );
+            Bank bank = new Bank();
+            Money result = bank.Reduce( sum, "USD" );
+            this.AreEqualByJson( Money.Dollar( 7 ), result );
+            Console.WriteLine( "Money.Dollar( 7 ) = bank.Reduce( new Sum( Money.Dollar( 3 ), Money.Dollar( 4 ) ), \"USD\" )" );
+        }
     }
 }
