@@ -102,5 +102,15 @@ namespace WyCashTest
             this.AreEqualByJson( Money.Dollar( 1 ), result );
             Console.WriteLine( "Money.Dollar( 1 ) = bank.Reduce( Money.Dollar( 1 ), \"USD\" )" );
         }
+
+        [Test]
+        public void Test08_ReduceMoneyDifferentCurrency()
+        {
+            Bank bank = new Bank();
+            bank.AddRate( "CHF", "USD", 2 );
+            Money result = bank.Reduce( Money.Franc( 2 ), "USD" );
+            this.AreEqualByJson( Money.Dollar( 1 ), result );
+            Console.WriteLine( "Money.Dollar( 1 ) = bank.Reduce( Money.Franc( 2 ), \"USD\" )" );
+        }
     }
 }
