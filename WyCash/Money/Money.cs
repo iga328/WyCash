@@ -11,7 +11,7 @@ namespace WyCash
     public class Money : Expression
     {
         [DataMember()]
-        protected int amount;
+        public int amount;
 
         [DataMember()]
         protected string currency;
