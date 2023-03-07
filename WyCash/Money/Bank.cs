@@ -11,8 +11,7 @@ namespace WyCash
         public Money Reduce( Expression source, string to )
         {
             Sum sum = (Sum)source;
-            int amount = sum.augend.amount + sum.addend.amount;
-            return new Money( amount, to );
+            return sum.Reduce( to );
         }
     }
 }

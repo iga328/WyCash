@@ -16,5 +16,11 @@ namespace WyCash
             this.augend = augend;
             this.addend = addend;
         }
+
+        public Money Reduce( string to )
+        {
+            int amount = this.augend.amount + this.addend.amount;
+            return new Money( amount, to );
+        }
     }
 }
