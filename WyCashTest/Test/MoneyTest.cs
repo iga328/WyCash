@@ -93,5 +93,14 @@ namespace WyCashTest
             this.AreEqualByJson( Money.Dollar( 7 ), result );
             Console.WriteLine( "Money.Dollar( 7 ) = bank.Reduce( new Sum( Money.Dollar( 3 ), Money.Dollar( 4 ) ), \"USD\" )" );
         }
+
+        [Test]
+        public void Test07_ReduceMoney()
+        {
+            Bank bank = new Bank();
+            Money result = bank.Reduce( Money.Dollar( 1 ), "USD" );
+            this.AreEqualByJson( Money.Dollar( 1 ), result );
+            Console.WriteLine( "Money.Dollar( 1 ) = bank.Reduce( Money.Dollar( 1 ), \"USD\" )" );
+        }
     }
 }
