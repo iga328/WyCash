@@ -34,7 +34,8 @@ namespace WyCash
 
         public Money Reduce( string to )
         {
-            return this;
+            int rate = ( this.currency.Equals( "CHF" ) && to.Equals( "USD" ) ) ? 2 : 1;
+            return new Money( this.amount / rate, to );
         }
 
         public string Currency()
