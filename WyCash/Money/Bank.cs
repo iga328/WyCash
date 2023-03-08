@@ -22,6 +22,10 @@ namespace WyCash
 
         public int Rate( string from, string to )
         {
+            if( from.Equals( to ) )
+            {
+                return 1;
+            }
             return this.rates[new Pair( from, to )];
         }
     }
