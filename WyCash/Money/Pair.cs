@@ -16,5 +16,16 @@ namespace WyCash
             this.from = from;
             this.to = to;
         }
+
+        public override bool Equals( object obj )
+        {
+            Pair pair = (Pair)obj;
+            return this.from.Equals( pair.from ) && this.to.Equals( pair.to );
+        }
+
+        public int HashCode()
+        {
+            return 0;
+        }
     }
 }
