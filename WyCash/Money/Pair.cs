@@ -17,6 +17,13 @@ namespace WyCash
             this.to = to;
         }
 
+        public override int GetHashCode()
+        {
+            // Dictionaryのキーで使えるようにする
+            // https://mocotan.hatenablog.com/entry/2017/10/31/064738
+            return this.from.GetHashCode() ^ this.to.GetHashCode();
+        }
+
         public override bool Equals( object obj )
         {
             Pair pair = (Pair)obj;
