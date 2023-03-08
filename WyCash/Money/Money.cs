@@ -32,7 +32,7 @@ namespace WyCash
             return new Sum( this, addend );
         }
 
-        public Money Reduce( string to )
+        public Money Reduce( Bank bank, string to )
         {
             int rate = ( this.currency.Equals( "CHF" ) && to.Equals( "USD" ) ) ? 2 : 1;
             return new Money( this.amount / rate, to );
