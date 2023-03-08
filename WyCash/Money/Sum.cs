@@ -19,7 +19,7 @@ namespace WyCash
 
         public Money Reduce( Bank bank, string to )
         {
-            int amount = this.augend.amount + this.addend.amount;
+            int amount = this.augend.Reduce( bank, to ).amount + this.addend.Reduce( bank, to ).amount;
             return new Money( amount, to );
         }
     }
