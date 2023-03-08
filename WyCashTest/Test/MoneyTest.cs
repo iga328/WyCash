@@ -122,5 +122,19 @@ namespace WyCashTest
             Assert.AreEqual( 1, new Bank().Rate( "CHF", "CHF" ) );
             Console.WriteLine( "new Bank().Rate( \"CHF\", \"CHF\" ) = 1" );
         }
+
+        [Test]
+        public void Test10_MixedAddition()
+        {
+            Expression fiveBucks = Money.Dollar( 5 );
+            Expression tenFrancs = Money.Franc( 10 );
+
+            Bank bank = new Bank();
+            bank.AddRate( "CHF", "USD", 2 );
+
+            Money result = bank.Reduce( fiveBucks.Plus( tenFrancs ), "USD" );
+            this.AreEqualByJson( Money.Dollar( 10 ), result );
+            Console.WriteLine( "Money.Dollar( 10 ) = bank.Reduce( fiveBucks.Plus( tenFrancs ), \"USD\" )" );
+        }
     }
 }
