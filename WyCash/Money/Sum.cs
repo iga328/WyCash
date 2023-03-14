@@ -19,7 +19,7 @@ namespace WyCash
 
         public Expression Plus( Expression addend )
         {
-            return null;
+            return new Sum( this, addend );
         }
 
         public Money Reduce( Bank bank, string to )
