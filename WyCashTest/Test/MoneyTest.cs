@@ -166,5 +166,13 @@ namespace WyCashTest
             this.AreEqualByJson( Money.Dollar( 20 ), result );
             Console.WriteLine( "Money.Dollar( 20 ) = bank.Reduce( new Sum( fiveBucks, tenFrancs ).Times( 2 ), \"USD\" )" );
         }
+
+        [Test]
+        public void Test13_PlusSameCurrencyReturnsMoney()
+        {
+            Expression sum = Money.Dollar( 1 ).Plus( Money.Dollar( 1 ) );
+            Assert.IsTrue( sum is Money );
+            Console.WriteLine( "Money.Dollar( 1 ).Plus( Money.Dollar( 1 ) ) is Money" );
+        }
     }
 }
