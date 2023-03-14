@@ -17,6 +17,11 @@ namespace WyCash
             this.addend = addend;
         }
 
+        public Expression Times( int multiplier )
+        {
+            return new Sum( this.augend.Times( multiplier ), this.addend.Times( multiplier ) );
+        }
+
         public Expression Plus( Expression addend )
         {
             return new Sum( this, addend );

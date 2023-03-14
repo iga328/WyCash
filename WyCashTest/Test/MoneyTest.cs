@@ -151,5 +151,20 @@ namespace WyCashTest
             this.AreEqualByJson( Money.Dollar( 15 ), result );
             Console.WriteLine( "Money.Dollar( 15 ) = bank.Reduce( new Sum( fiveBucks, tenFrancs ).Plus( fiveBucks ), \"USD\" )" );
         }
+
+        [Test]
+        public void Test12_SumTimes()
+        {
+            Expression fiveBucks = Money.Dollar( 5 );
+            Expression tenFrancs = Money.Franc( 10 );
+
+            Bank bank = new Bank();
+            bank.AddRate( "CHF", "USD", 2 );
+
+            Expression sum = new Sum( fiveBucks, tenFrancs ).Times( 2 );
+            Money result = bank.Reduce( sum, "USD" );
+            this.AreEqualByJson( Money.Dollar( 20 ), result );
+            Console.WriteLine( "Money.Dollar( 20 ) = bank.Reduce( new Sum( fiveBucks, tenFrancs ).Times( 2 ), \"USD\" )" );
+        }
     }
 }
