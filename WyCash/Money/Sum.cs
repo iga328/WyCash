@@ -17,6 +17,11 @@ namespace WyCash
             this.addend = addend;
         }
 
+        public Expression Plus( Expression addend )
+        {
+            return null;
+        }
+
         public Money Reduce( Bank bank, string to )
         {
             int amount = this.augend.Reduce( bank, to ).amount + this.addend.Reduce( bank, to ).amount;
