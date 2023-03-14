@@ -22,7 +22,7 @@ namespace WyCash
             this.currency = currency;
         }
 
-        public Money Times( int multiplier )
+        public Expression Times( int multiplier )
         {
             return new Money( this.amount * multiplier, this.currency );
         }
